@@ -130,6 +130,9 @@ If the firmware is loaded without problem you should see an output like this:
 Before run the CA7 tool and load the firmware on the CM4 you need to load the kernel module.
 To do this run this command inside the `/home/root` folder.
 
+> Note: If you've built the image using [this](https://github.com/dimtass/meta-stm32mp1-bsp-base)
+Yocto BSP base layer then the module is already loaded.
+
 ```sh
 insmod rpmsg_netlink.ko
 ```
