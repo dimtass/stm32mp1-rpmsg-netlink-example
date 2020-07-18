@@ -9,7 +9,7 @@ This repo contains the source code of the firwmare for the CM4 MPU on the STM32M
 and a Linux tool for the CA CPU. Both are using OpenAMP to transfer data between
 the MPU and CPU via the virtual UART/TTY.
 
-> Note: There is a blog post here which explains how to use this test [here](https://www.stupid-projects.com/?p=881&preview=true).
+> Note: There is a blog post here which explains how to use this test [here](https://www.stupid-projects.com/benchmarking-the-stm32mp1-ipc-between-the-mcu-and-cpu-part-2/).
 
 ## Build the CM firmware
 To build the firmware you need to clone the repo in any directory and then inside
