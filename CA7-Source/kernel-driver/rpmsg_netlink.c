@@ -25,7 +25,7 @@
 /*
  * Static global variables
  */
-static const char rpmsg_sdb_driver_name[] = "rpmsg-netlink";
+static const char rpmsg_netlink_driver_name[] = "rpmsg-netlink";
 
 struct sock *nl_sk = NULL;
 struct rpmsg_device *rpmsg_dev = NULL;
@@ -133,7 +133,7 @@ static int rpmsg_drv_probe(struct rpmsg_device *rpdev)
 		dev_err(dev, "Error creating socket.\n");
 		return -10;
 	}
-	dev_info(dev, "%s created netlink socket\n", rpmsg_sdb_driver_name);
+	dev_info(dev, "%s created netlink socket\n", rpmsg_netlink_driver_name);
 
 	rpmsg_data->recv_data_len = 0;
 	rpmsg_data->nlsck = nl_sk;
@@ -147,16 +147,16 @@ static void rpmsg_drv_remove(struct rpmsg_device *rpmsgdev)
 	netlink_kernel_release(nl_sk);
 }
 
-static struct rpmsg_device_id rpmsg_driver_sdb_id_table[] = {
+static struct rpmsg_device_id rpmsg_netlink_driver_id_table[] = {
 	{ .name	= "rpmsg-netlink" },
 	{ },
 };
-MODULE_DEVICE_TABLE(rpmsg, rpmsg_driver_sdb_id_table);
+MODULE_DEVICE_TABLE(rpmsg, rpmsg_netlink_driver_id_table);
 
 static struct rpmsg_driver rpmsg_netlink_drv = {
 	.drv.name	= KBUILD_MODNAME,
 	.drv.owner	= THIS_MODULE,
-	.id_table	= rpmsg_driver_sdb_id_table,
+	.id_table	= rpmsg_netlink_driver_id_table,
 	.probe		= rpmsg_drv_probe,
 	.callback	= rpmsg_drv_cb,
 	.remove		= rpmsg_drv_remove,
@@ -170,11 +170,11 @@ static int __init rpmsg_netlink_drv_init(void)
 	ret = register_rpmsg_driver(&rpmsg_netlink_drv);
 
 	if (ret) {
-		pr_err("%s(rpmsg_sdb): Failed to register device\n", __func__);
+		pr_err("%s(rpmsg-netlink): Failed to register device\n", __func__);
 		return ret;
 	}
 
-	pr_info("%s(rpmsg_sdb): Init done\n", __func__);
+	pr_info("%s(rpmsg-netlink): Init done\n", __func__);
 
 	return ret;
 }
@@ -182,7 +182,7 @@ static int __init rpmsg_netlink_drv_init(void)
 static void __exit rpmsg_netlink_drv_exit(void)
 {
 	unregister_rpmsg_driver(&rpmsg_netlink_drv);
-	pr_info("%s(rpmsg_sdb): Exit\n", __func__);
+	pr_info("%s(rpmsg-netlink): Exit\n", __func__);
 }
 
 module_init(rpmsg_netlink_drv_init);
