@@ -109,7 +109,7 @@ To stop the firmware run:
 > Note: The console of the STM32MP1 is routed in the micro-USB connector `STLINK CN11` which
 in case of my Ubuntu shows up as `/dev/ttyACMx`.
 
-When you copy the `./fw_cortex_m4.sh` you need also to enable the execution flag with:
+When you copy the `./fw_cortex_m4_netlink.sh` you need also to enable the execution flag with:
 ```sh
 chmod +x fw_cortex_m4.sh
 ```
@@ -117,7 +117,7 @@ chmod +x fw_cortex_m4.sh
 If the firmware is loaded without problem you should see an output like this:
 ```sh
 [ 4090.716351] remoteproc remoteproc0: powering up m4
-[ 4090.721409] remoteproc remoteproc0: Booting fw image stm32mp157c-rpmsg-test-netlink.elf, size 696716
+[ 4090.721409] remoteproc remoteproc0: Booting fw image stm32mp157c-rpmsg-netlink.elf, size 696716
 [ 4090.729447]  mlahb:m4@10000000#vdev0buffer: assigned reserved memory node vdev0buffer@10042000
 [ 4090.739089] virtio_rpmsg_bus virtio0: rpmsg host is online
 [ 4090.747130]  mlahb:m4@10000000#vdev0buffer: registered virtio0 (type 7)

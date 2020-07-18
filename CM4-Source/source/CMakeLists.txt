@@ -2,7 +2,7 @@
 
 cmake_minimum_required(VERSION 3.12)
 
-project(stm32mp157c-rpmsg-test-netlink LANGUAGES C CXX)
+project(stm32mp157c-rpmsg-netlink LANGUAGES C CXX)
 
 option(USE_HAL_DRIVER "Use HAL library" OFF)
 option(USE_LL_DRIVER "Use Low-Level (LL) library" OFF)
