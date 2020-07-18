@@ -2,7 +2,7 @@
 rproc_class_dir="/sys/class/remoteproc/remoteproc0/"
 fmw_dir="/lib/firmware"
 project_name=$(basename $(pwd))
-fmw_name=stm32mp157c-rpmsg-test.elf
+fmw_name=stm32mp157c-rpmsg-netlink.elf
 echo "fw_cortex_m4.sh: fmw_name=${fmw_name}"
 rproc_state=`tr -d '\0' < $rproc_class_dir/state`
 
